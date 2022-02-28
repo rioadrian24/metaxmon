@@ -2,26 +2,55 @@
 
 @section('content')
 <section id="home" class="hero">
+    <div class="blur"></div>
+    <div class="bubble"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 align-self-center">
                 <h1 class="text-white title-hero fw-bold">{{ banner()->title }}</h1>
-                <h4 class="text-muted">{{ banner()->description }}</h4>
+                <h4 class="text-muted description-hero">{{ banner()->description }}</h4>
             </div>
-            <div class="col-lg-5 col-10">
-                <img src="{{ Storage::url(banner()->thumbnail) }}" class="img-fluid" alt="">
+            <div class="col-lg-5 col-8">
+                <div class="img-banner">
+                    <div class="gradient-square"></div>
+                    <div class="gradient-square-shadow"></div>
+                    <img src="{{ Storage::url(banner()->thumbnail) }}" class="img-fluid" alt="">
+                </div>
             </div>
         </div>
     </div>
 </section>
-<section class="py-5">
+<section class="nft py-5">
+    <div class="blur"></div>
     <div class="container">
-        <div class="row justify-content-center">
-            @foreach(nfts() as $nft)
-            <div class="col-lg-3 mb-3">
-                    <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
-                    <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
-            </div>
+        <div class="eggs">
+            @foreach(nfts() as $i => $nft)
+            @if ($i == 0)
+            <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
+            @elseif ($i == 1)
+            <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
+            @elseif ($i == 2)
+            <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
+            @elseif ($i == 3)
+            <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
+            @elseif ($i == 4)
+            <img src="{{ Storage::url($nft->egg) }}" class="img-fluid">
+            @endif
+            @endforeach
+        </div>
+        <div class="nfts">
+            @foreach(nfts() as $i => $nft)
+            @if ($i == 0)
+            <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
+            @elseif ($i == 1)
+            <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
+            @elseif ($i == 2)
+            <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
+            @elseif ($i == 3)
+            <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
+            @elseif ($i == 4)
+            <img src="{{ Storage::url($nft->nft) }}" class="img-fluid">
+            @endif
             @endforeach
         </div>
     </div>
